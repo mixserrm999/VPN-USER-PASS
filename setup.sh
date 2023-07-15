@@ -19,6 +19,8 @@ cp /etc/openvpn/server/server.crt /etc/openvpn/server.crt
 cp /etc/openvpn/server/server.key /etc/openvpn/server.key
 chmod +x /etc/openvpn/ca.crt
 
+# Before copying the files, create the directory if it doesn't exist
+mkdir -p /home/xver/public_html/
 cd
 mkdir -p /usr/lib/openvpn/
 cp /usr/lib/x86_64-linux-gnu/openvpn/plugins/openvpn-plugin-auth-pam.so /usr/lib/openvpn/openvpn-plugin-auth-pam.so
@@ -39,11 +41,8 @@ echo '<ca>' >> /etc/openvpn/client-tcp-1194.ovpn
 cat '/etc/openvpn/server/ca.crt' >> /etc/openvpn/client-tcp-1194.ovpn
 echo '</ca>' >> /etc/openvpn/client-tcp-1194.ovpn
 
-# Before copying the files, create the directory if it doesn't exist
-mkdir -p /home/vps/public_html/
-
 # Copy config OpenVPN client ke home directory root agar mudah didownload ( TCP 1194 )
-cp /etc/openvpn/client-tcp-1194.ovpn /home/vps/public_html/client-tcp-1194.ovpn
+cp /etc/openvpn/client-tcp-1194.ovpn /home/xver/public_html/client-tcp-1194.ovpn
 
 # 2200
 # Enter the certificate into the UDP 2200 client config
@@ -52,7 +51,7 @@ cat '/etc/openvpn/ca.crt' >> /etc/openvpn/client-udp-2200.ovpn
 echo '</ca>' >> /etc/openvpn/client-udp-2200.ovpn
 
 # Copy config OpenVPN client ke home directory root agar mudah didownload ( UDP 2200 )
-cp /etc/openvpn/client-udp-2200.ovpn /home/vps/public_html/client-udp-2200.ovpn
+cp /etc/openvpn/client-udp-2200.ovpn /home/xver/public_html/client-udp-2200.ovpn
 
 # Enter the certificate into the config SSL client .
 echo '<ca>' >> /etc/openvpn/client-tcp-ssl.ovpn
