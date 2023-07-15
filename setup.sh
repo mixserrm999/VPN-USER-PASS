@@ -39,6 +39,9 @@ echo '<ca>' >> /etc/openvpn/client-tcp-1194.ovpn
 cat '/etc/openvpn/server/ca.crt' >> /etc/openvpn/client-tcp-1194.ovpn
 echo '</ca>' >> /etc/openvpn/client-tcp-1194.ovpn
 
+# Before copying the files, create the directory if it doesn't exist
+mkdir -p /home/vps/public_html/
+
 # Copy config OpenVPN client ke home directory root agar mudah didownload ( TCP 1194 )
 cp /etc/openvpn/client-tcp-1194.ovpn /home/vps/public_html/client-tcp-1194.ovpn
 
